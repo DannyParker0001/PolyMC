@@ -254,7 +254,6 @@ void readIndex(const QString & path, QMap<QString, Language>& languages)
         return;
     }
 
-    int index = 1;
     try
     {
         auto toplevel_doc = Json::requireDocument(data);
@@ -287,7 +286,6 @@ void readIndex(const QString & path, QMap<QString, Language>& languages)
             lang.file_size = Json::requireInteger(langObj, "size");
 
             languages.insert(lang.key, lang);
-            index++;
         }
     }
     catch (Json::JsonException & e)
